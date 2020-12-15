@@ -1,22 +1,25 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { getUsers } from './state/users/actions';
 
-class Home extends React.Component {
+const Home = (props) => {
 
-
-    componentDidMount(){
-       this.props.getUsers()
-       console.log(this.props)
-    }
-
-    render() {
-        const { state } = this.props;
-        return(<h1>Title</h1>)
-    }
+    useEffect(() => {
+        props.getUsers();
+        console.log('props', props.data);
+    }, []);
+   return(
+    <h1>Title</h1>
+   );
 }
 
-const mapStateToProps = state => ({state})
+const mapStateToProps = ({
+    users: {
+        users: {
+            data
+        }
+    }
+}) => ({data})
 
 
 export default connect(mapStateToProps, {getUsers})(Home);

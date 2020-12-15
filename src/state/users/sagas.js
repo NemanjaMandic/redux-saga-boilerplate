@@ -13,5 +13,5 @@ export function* getUsers$() {
 }
 
 export default function* () {
-  yield all([takeLatest(actions.getUsers, getUsers$)]);
+  yield all([takeLatest(actions.GET_USERS, getUsers$)]);
 }
