@@ -1,11 +1,9 @@
-import React from "react";
-
-import "./App.css";
-import Home from "./Home";
+import './App.css';
+import Home from './Home';
 
 const App = () => {
   return (
-    <div className="App">
+    <div className='App'>
       <Home />
     </div>
   );

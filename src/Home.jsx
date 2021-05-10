@@ -1,25 +1,22 @@
-import React, { useEffect } from 'react';
-import { connect } from 'react-redux';
+import  { useEffect } from 'react';
+import { useSelector, useDispatch  } from 'react-redux';
 import { getUsers } from './state/users/actions';
 
-const Home = (props) => {
-
+const Home = () => {
+   const dispatch = useDispatch()
+   const users = useSelector(state => state.users.users.data)
     useEffect(() => {
-        props.getUsers();
-        console.log('props', props.data);
+        dispatch(getUsers());
+       
+      
     }, []);
+
+    console.log('USERS', users);
    return(
     <h1>Title</h1>
    );
 }
 
-const mapStateToProps = ({
-    users: {
-        users: {
-            data
-        }
-    }
-}) => ({data})
 
 
-export default connect(mapStateToProps, {getUsers})(Home);
+export default Home;
